@@ -1,0 +1,24 @@
+{% load render_partial %}
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="keywords"
+          content="architecture, building, business, company, construction, corporate, Electricy, engineering, industry, interior, isolation, maintenance, painting, projecting, renovation">
+    <meta name="description"
+          content="KAMLA - is a business theme built for Building Services, Architecture, Engineering and other Construction related services.">
+    <title>{% block title %}{% endblock %}</title>
+    {% include "shared/header_references.html" %}
+    {% block extra_style %}{% endblock %}
+</head>
+<body>
+<div class="main-page-wrapper">
+    {% render_partial 'home.views.header_component' %}
+    {% block content %}{% endblock %}
+    {% render_partial 'home.views.footer_component' %}
+</div>
+{% include 'shared/footer_references.html' %}
+{% block extra_js %}{% endblock %}
+</body>
+</html>
