@@ -1,0 +1,89 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block title %}
+    پروژه ها
+{% endblock %}
+
+{% block content %}
+    <section class="about__banner position-relative">
+        <div class="about__banner__bg aos-init aos-animate" data-aos="fade-up">
+            <div class="about__banner__content m-auto">
+                <div class="container position-relative">
+                    <div class="row align-items-center pt-250 pb-150 pt-lg-190 pb-lg-90">
+                        <div class="col-xl-12">
+                            <div class="theme__content position-relative m-auto text-center">
+                                <h1 class="banner__main__title">پروژه های ما</h1>
+                                <p class=""><a href="{% url 'home_page' %}">صفحه اصلی</a><span class=""></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="project__section project__version__one position-relative pb-70 pb-lg-60 pt-150 pt-lg-60">
+        <div class="project__section__wrapper aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="row align-items-center mb-lg-30">
+                    <div class="col-xl-12">
+                        <div class="section__title text-start text-lg-center mb-lg-30">
+                            <h2 class="section__title__main position-relative mb-30">پروژه های ما</h2>
+                            <p class="section__description mb-30">از پروژه های انجام شده ما دیدن کنید و پروژه خودتون رو به ما بسپارید.</p>
+                            <div class="project__catgegories pt-20">
+                                <ul>
+                                    <li><a href="{% url 'projects_page' %}">همه</a></li>
+                                    {% for category in categories %}
+                                    	<li><a href="{% url 'projects_category_page' category.title %}">{{ category.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-80 pt-lg-40">
+                    {% for project in projects %}
+                        <div class="col-xl-6">
+                            <div class="service__main__content position-relative mb-30" id="all house">
+                                <div class="service__img"><img src="{{ project.image.url }}"
+                                                               alt=""
+                                                               class="w-100"></div>
+                                <div class="service__content">
+                                    <div class="service__link text-center text-lg-end mb-40 mb-lg-30">
+                                        <div class="icon__link">
+                                            <div class="icon mb-20"><a
+                                                    href="{{ project.image.url }}"
+                                                    class="popup__link"><img
+                                                    src="{% static "assets/img/icon/expand__01.png" %}" alt="" class=""></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="service__text text-center">
+                                        <a href="project-details.html" class="">{{ project.title }}</a>
+                                        <p class="section__description mt-30">{{ project.short_description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="alert alert-dark col-sm-12">
+                        <ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+                            </li>
+                        {% endif %}
+                        {% for page_number in paginator.page_range %}
+                            <li class="{% if page_obj.number == page_number %}active{% endif %}">
+                                <a href="?page={{ page_number }}">{{ page_number }}</a>
+                            </li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}">بعدی</a></li>
+                        {% endif %}
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
