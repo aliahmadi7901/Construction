@@ -59,7 +59,7 @@
                                         </div>
                                     </div>
                                     <div class="service__text text-center">
-                                        <a href="project-details.html" class="">{{ project.title }}</a>
+                                        <a href="{% url 'project_detail_page' project.id %}" class="">{{ project.title }}</a>
                                         <p class="section__description mt-30">{{ project.short_description }}</p>
                                     </div>
                                 </div>

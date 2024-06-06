@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # external
     'django_render_partial',
     'django_jalali',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [

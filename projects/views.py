@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
-from projects.models import Project, ProjectCategory
+from projects.models import Project, ProjectCategory, ProjectGallery
 
 
 class ProjectListView(ListView):
@@ -21,4 +21,15 @@ class ProjectListView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
         context['categories'] = ProjectCategory.objects.all()
+        return context
+
+
+class ProjectDetailView(DetailView):
+    model = Project
+    template_name = 'projects/project_detail.html'
+    context_object_name = 'project'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['gallery'] = ProjectGallery.objects.filter(project=self.get_object())
         return context
