@@ -1,0 +1,89 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    جزئیات سرویس
+{% endblock %}
+
+{% block content %}
+    <section class="about__banner position-relative">
+        <div class="about__banner__bg aos-init aos-animate" data-aos="fade-up">
+            <div class="about__banner__content m-auto">
+                <div class="container position-relative">
+                    <div class="row align-items-center pt-250 pb-150 pt-lg-190 pb-lg-90">
+                        <div class="col-xl-12">
+                            <div class="theme__content position-relative m-auto text-center">
+                                <h1 class="banner__main__title">جزئیات خدمات</h1>
+                                <p class=""><a href="index.html">صفحه اصلی/ </a><a href="{% url 'services_page' %}">خدمات</a><span
+                                        class=""></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="service__section service__details position-relative pb-70 pb-lg-60 pt-120 pt-lg-30">
+        <div class="service__details__wrapper aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8 mb-lg-30">
+                        <div class="left__service">
+                            <img src="{{ service.image.url}}" alt="" id="image_1">
+                            <h2 class="section__title__main position-relative mt-50 mb-50">{{ service.title}}</h2>
+                            <p class="section__description opacity-7 mb-30">{{ service.description}}</p>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="right__service mb-60 mb-lg-30">
+                            <h4 class="mb-50">امکانات سرویس:</h4>
+                            <h5>{{ service.possibilities }}</h5>
+                        </div>
+                        <div class="service__contact text-center">
+                            <h5 class=" mb-20">برای هر سرویسی آماده اید؟</h5>
+                            <h6 class=""><a href="">با ما تماس بگیرید</a></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about__section home__one__section__one position-relative">
+        <div class="counter__section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="fact__one mb-lg-30">
+                            <h1 class="banner__main__title">
+                                <span class="counter">2</span>k+</h1>
+                            <div class="row ">
+                                <div class="col-5 text-start text-lg-center"><small class="">پروژه های موفق</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 text-start text-lg-center">
+                        <div class="fact__one mb-lg-30">
+                            <h1 class="banner__main__title">
+                                <span class="counter">0.2</span>%</h1>
+                            <div class="row ">
+                                <div class="col-12 text-start text-lg-center"><small class="">پروژه های موفق</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="fact__one text-start text-lg-end">
+                            <h1 class="banner__main__title">
+                                <span class="counter">0.4</span>mil+</h1>
+                            <div class="row">
+                                <div class="col-12 text-start text-lg-center ml-40 ml-md-0"><small class="">پروژه های
+                                    موفق</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

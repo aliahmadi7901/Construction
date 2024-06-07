@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # internal
     'home',
     'projects',
+    'services',
     # external
     'django_render_partial',
     'django_jalali',

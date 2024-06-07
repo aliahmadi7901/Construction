@@ -1,0 +1,112 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    سرویس ها
+{% endblock %}
+
+{% block content %}
+    <section class="about__banner position-relative">
+        <div class="about__banner__bg aos-init aos-animate" data-aos="fade-up">
+            <div class="about__banner__content m-auto">
+                <div class="container position-relative">
+                    <div class="row align-items-center pt-250 pb-150 pt-lg-190 pb-lg-90">
+                        <div class="col-xl-12">
+                            <div class="theme__content position-relative m-auto text-center">
+                                <h1 class="banner__main__title">خدمات ما</h1>
+                                <p class=""><a href="{% url 'home_page' %}">صفحه اصلی</a><span class=""></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about__section home__one__section__one position-relative pt-160 pt-lg-60">
+        <div class="about__section__wrapper aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-12">
+                        <div class="section__title mb-lg-50">
+                            <div class="row">
+                                <div class="col-xl-11 col-lg-12"><h2
+                                        class="section__title__main position-relative mb-30">ساخت و ساز, بازسازی و
+                                    معماری هنری است پیچیده که ما آن را به شما هدیه می دهیم.</h2></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-10"><p class="section__description mb-30">تخصص ما شامل ساخت و ساز
+                                    انواع خانه های ویلایی, آپارتمانی و باغ ویلا و باز سازی و معماری با دانش به روز و
+                                    تجربه بالا در زمینه ساخت و ساز است.</p></div>
+                            </div>
+                            <div class="section__button d-flex align-items-center"><a href="contact.html"
+                                                                                      class="ht_btn"><span>ادامه مطلب</span></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section
+            class="service__section home__three__section__four position-relative mt-110 pb-170 pb-lg-60 pt-150 pt-lg-60">
+        <div class="service__section__wrapper aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="row align-items-center mb-lg-30">
+                    <div class="col-xl-12">
+                        <div class="section__title mb-lg-30 text-start">
+                            <div class="row">
+                                <div class="col-xl-8 mt-30">
+                                    <h2 class="three__section__title__main position-relative mb-30">چه کاری میتونیم
+                                        براتون انجام بدیم؟</h2>
+                                    <p class="three__section__description opacity-7 mb-40 mb-lg-30">سرویس ها و خدمات ما
+                                        را مشاهده کنید و خدماتی که مورد نیازتون هست رو پیدا کنید.</p>
+                                </div>
+                            </div>
+                            <a href="contact.html"
+                               class="ht_btn three__ht__btn offset-4"><span>برای کسب اطلاعات بیشتر با ما در تماس باشید.</span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <span class="three__section__sub__title position-relative">آنچه ما ارائه می دهیم</span>
+                <div class="row pt-30 pt-lg-30">
+                    {% for service in services %}
+                        <div class="col-xxl-4">
+                            <div class="service__main__content text-start mb-30 mb-lg-30">
+                                <div class="service__icon service__icon__two position-relative mb-40 mb-lg-30"></div>
+                                <h4 class="three__section__sub__title__one mb-20"><a href="{% url 'service_detail_page' service.id %}">{{ service.title}}</a></h4>
+                                <p class="section__description__two opacity-7 mb-40 mb-lg-30">{{ service.short_description }}</p>
+                                <div class="service__link"><a href="{% url 'service_detail_page' service.id %}">بیشتر ببین<span><i
+                                        class="bi bi-arrow-right"></i></span></a></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact__three__section position-relative pb-70 pb-lg-60 pt-90 pt-lg-60">
+        <div class="contact__section__wrapper position-relative pt-90 pb-90 aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="main__content">
+                    <h4 class="section__sub__title__four mb-25">دفتر مرکزی</h4>
+                    <p class="three__section__description mb-25">4517 واشینگتن خیابان منچستر، کنتاکی 39495، مکزیک.</p>
+                    <div class="contact__info mb-25">
+                        <b>پست الکترونیک</b>
+                        <p><a href="">mahmudinfoconstruction@gmail.com</a></p>
+                    </div>
+                    <div class="contact__info mb-25">
+                        <b>با ما تماس بگیرید:</b>
+                        <p><a href="">(702) 555-0122</a></p>
+                    </div>
+                    <a href="contact.html" class="ht_btn"><span>با ما تماس بگیرید</span></a>
+                </div>
+            </div>
+            <div class="map__indicator shapes"><a href="" class=""><img src="assets/img/icon/location__01.png" alt=""
+                                                                        class=""></a></div>
+            <img src="assets/img/contact/map__01.png" alt="" class="shapes map__01">
+        </div>
+    </section>
+{% endblock %}
