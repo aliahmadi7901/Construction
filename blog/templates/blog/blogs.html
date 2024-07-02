@@ -1,0 +1,84 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    وبلاگ ها
+{% endblock %}
+
+{% block content %}
+    <section class="about__banner position-relative">
+        <div class="about__banner__bg aos-init aos-animate" data-aos="fade-up">
+            <div class="about__banner__content m-auto">
+                <div class="container position-relative">
+                    <div class="row align-items-center pt-250 pb-150 pt-lg-190 pb-lg-90">
+                        <div class="col-xl-12">
+                            <div class="theme__content position-relative m-auto text-center">
+                                <h1 class="banner__main__title">وبلاگ ها</h1>
+                                <p class=""><a href="{% url 'home_page' %}">صفحه اصلی</a><span class=""></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog__section blog__version__one position-relative pb-70 pb-lg-60 pt-90 pt-lg-60">
+        <div class="blog__section__wrapper aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="row align-items-center mb-lg-30">
+                    <div class="col-xl-12">
+                        <div class="section__title text-start text-lg-center mb-lg-30">
+                            <h2 class="section__title__main position-relative mb-30">وبلاگ های ما</h2>
+                            <p class="section__description mb-30">با مطالعه وبلاگ ها و خبر نامه های ما دانش خود را در
+                                زمینه ساخت و ساز افزایش دهید و آگاهی بهتری از کار های ما پیدا کنید.</p>
+                            <div class="project__catgegories pt-20">
+                                <ul>
+                                    <li><a href="{% url 'blog_list' %}">همه</a></li>
+                                    {% for category in blog_category %}
+                                        <li><a href="{% url 'blog_category' category.title %}">{{ category.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row pt-80 pt-lg-60">
+                    {% for blog in blogs %}
+                        <div class="col-xl-6">
+                            <div class="blog__main__content position-relative mb-30 px-2">
+                                <a href="{% url 'blog_detail' blog.id %}">
+                                    <div class="blog__img__content position-relative">
+                                        <img src="{{ blog.image.url }}" alt="blog"
+                                             class="home__one__blog__01 w-100"><span
+                                            class=" shapes bg-white">{{ blog.created_time.date }}</span>
+                                    </div>
+                                </a>
+                                <div class="blog__text__content pt-20">
+                                    <div class="blog__title d-flex align-items-center pt-20">
+                                        <h4 class="section__sub__title__two"><a
+                                                href="{% url 'blog_detail' blog.id %}">{{ blog.short_descriptions }}</a></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="project__pagination pt-20">
+                    <ul>
+                        {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+                            </li>
+                        {% endif %}
+                        {% for page_number in paginator.page_range %}
+                            <li class="{% if page_obj.number == page_number %}active{% endif %}">
+                                <a href="?page={{ page_number }}">{{ page_number }}</a>
+                            </li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}">بعدی</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

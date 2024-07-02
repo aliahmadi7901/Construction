@@ -41,10 +41,12 @@ INSTALLED_APPS = [
     'home',
     'projects',
     'services',
+    'blog',
     # external
     'django_render_partial',
     'django_jalali',
     'easy_thumbnails',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [

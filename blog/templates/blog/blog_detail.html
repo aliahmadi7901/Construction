@@ -1,0 +1,156 @@
+{% extends 'shared/base.html' %}
+{% load thumbnail %}
+{% load static %}
+
+{% block title %}
+    جزئیات وبلاگ
+{% endblock %}
+
+{% block content %}
+    <section class="about__banner position-relative">
+        <div class="about__banner__bg aos-init aos-animate" data-aos="fade-up">
+            <div class="about__banner__content m-auto">
+                <div class="container position-relative">
+                    <div class="row align-items-center pt-250 pb-150 pt-lg-190 pb-lg-90">
+                        <div class="col-xl-12">
+                            <div class="theme__content position-relative m-auto text-center">
+                                <h1 class="banner__main__title">جزئیات وبلاگ</h1>
+                                <p class=""><a href="{% url 'home_page' %}">صفحه اصلی</a><span class=""></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog__details__one blog__version__one position-relative pb-70 pb-lg-60 pt-90 pt-lg-60">
+        <div class="blog__section__wrapper aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="row pt-80 pt-lg-60">
+                    <div class="col-xl-7 order-2 order-xl-1">
+                        <div class="blog__details__all">
+                            <div class="blog__main__content position-relative mb-30 ">
+                                <h3 class="blog__heading__three mb-30">{{ blog.title }}</h3>
+                                <div class="blog__img__content mb-60 position-relative">
+                                    <img src="{{ blog.image.url }}" alt="blog"
+                                         class="home__one__blog__01 w-100"><span
+                                        class=" shapes bg-white">{{ blog.created_time.date }}</span>
+                                </div>
+                                <p class="blog__description mb-80">{{ blog.description }}</p>
+                            </div>
+                            <div class="blog__comments mb-80">
+                                <span class="blog__qute position-relative">({{ blog_comments_count }}) نظر</span>
+                                {% for blog_comment in blog_comments %}
+                                    <div class="blog__comment__one mt-40">
+                                        <div class="row">
+                                            <div class="col-lg-1 mb-lg-30">
+                                                <div class="comment__pic"><img
+                                                        src="{% static 'assets/img/blog/icon.jpg' %}" alt="icon"
+                                                        class="rounded w-100"></div>
+                                            </div>
+                                            <div class="col-lg-1 mb-lg-30">
+                                                <div class="comment__pic"></div>
+                                            </div>
+                                            <div class="col-lg-11">
+                                                <div class="comment__text pl-20 pl-lg-0">
+                                                    <h5 class="mb-10">{{ blog_comment.name }}</h5>
+                                                    <h6 class="mb-10">{{ blog_comment.created_time.date }}</h6>
+                                                    <p class="mb-10">{{ blog_comment.comment }}</p>
+                                                    <div class="">
+                                                        <img src="{% static  'assets/img/icon/comment__01.png' %}"
+                                                             alt=""
+                                                             class=""><a id="answer"
+                                                                         onclick="comment({{ blog_comment.id }})">پاسخ</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% if blog_comment.childes.all %}
+                                        {% for child in blog_comment.childes.all %}
+                                            {% if child.is_active %}
+                                                <div class="blog__comment__one mt-40 pl-80 pl-lg-0">
+                                                    <div class="row">
+                                                        <div class="col-lg-1 mb-lg-30">
+                                                            <div class="comment__pic"><img
+                                                                    src="{% static 'assets/img/blog/icon.jpg' %}"
+                                                                    alt="icon"
+                                                                    class="rounded w-100"></div>
+                                                        </div>
+                                                        <div class="col-lg-1 mb-lg-30">
+                                                            <div class="comment__pic"></div>
+                                                        </div>
+                                                        <div class="col-lg-11">
+                                                            <div class="comment__text pl-20 pl-lg-0">
+                                                                <h5 class="mb-10">{{ child.name }}</h5>
+                                                                <h6 class="mb-10">{{ child.created_time.date }}</h6>
+                                                                <p class="mb-10">{{ child.comment }}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <div class="blog__comment__form" id="comment_form">
+                                <h3 class="inner__title__one mb-35">پیام بگذارید</h3>
+                                <p class="mb-55 mb-lg-30">آدرس ایمیل شما منتشر نخواهد شد. فیلدهای الزامی علامت گذاری شده
+                                    اند *</p>
+                                <div class="contact-form-one p-0">
+                                    <form class="widget-form" method="post" action="{% url 'blog_detail' blog.id %}">
+                                        {% csrf_token %}
+                                        <div class="row">
+                                            {{ form }}
+                                            <div class="col-12 mt-30">
+                                                <h6>
+                                                    <button type="submit" class="ht_btn"><span>ارسال نظر</span></button>
+                                                </h6>
+                                            </div>
+                                            <h4>نظر شما پس از تایید ادمین نمایش داده خواهد شد.</h4>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 order-1 order-xl-2 mb-lg-60">
+                        <div class="blog__right__rapper pl-70 pl-lg-0">
+                            <div class="recent__blog mb-30">
+                                <h5 class="blog__heading__five mb-30 position-relative">وبلاگ های اخیر</h5>
+                                {% for latest in latest_blog %}
+                                    <div class="blog_one mb-35 d-flex align-items-center">
+                                        <div class="blog__img">
+                                            <a href="{% url 'blog_detail' latest.id %}">
+                                                <img src="{{ latest.image.url }}" id="latest_img" width="150px"
+                                                     alt="blog">
+                                            </a>
+                                        </div>
+                                        <div class="blog__text">
+                                            <p><a href="{% url 'blog_detail' latest.id %}">{{ latest.title }}</a></p>
+                                            <span>{{ latest.created_time.date }}</span>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="recent__blog blog__category mb-30">
+                                <h5 class="blog__heading__five mb-30 position-relative">دسته بندی ها</h5>
+                                {% for category in categories %}
+                                    <ul class="blog_one mb-35 d-flex align-items-center justify-content-between">
+                                        <li class=""><p><a
+                                                href="{% url 'blog_category' category.title %}">{{ category.title }}</a>
+                                        </p></li>
+                                        <li class="blog__text"><p><a
+                                                href="{% url 'blog_category' category.title %}">({{ category.blogs.count }})</a>
+                                        </p></li>
+                                    </ul>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
