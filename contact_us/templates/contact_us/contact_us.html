@@ -1,0 +1,73 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block title %}
+    تماس با ما
+{% endblock %}
+
+{% block content %}
+    <main>
+        <div class="contact__main__page position-relative pb-120 pb-lg-60 pt-120 pt-lg-60">
+            <div class="container">
+                <div class="contact__rapper">
+                    <div class="row d-flex align-items-center">
+                        <div class="col-xl-6 pb-lg-60">
+                            <div class="contact__left__form position-relative">
+                                <span class="three__section__sub__title position-relative">با ما تماس بگیرید</span>
+                                <h3 class="mt-20 mb-60 mb-lg-40">در تماس باش</h3>
+                                <form class="widget-form" method="post" action="{% url 'contact_us' %}">
+                                    <div class="row">
+                                        {% csrf_token %}
+                                        <div class="col-md-9">{{ contact_form.name.label }} :
+                                            {{ contact_form.name }}
+                                        </div>
+                                        <div class="col-md-9">{{ contact_form.phone.label }} :
+                                            {{ contact_form.phone }}
+                                        </div>
+                                        <div class="col-md-9">{{ contact_form.comment.label }} :
+                                            {{ contact_form.comment }}</div>
+                                        <div class="col-9 mt-20">
+                                            <div class="custom__btn"><button type="submit" class="ht_btn"><span>پیام فرستادن</span></button>
+                                            </div>
+                                            <div class="alert alert-info" id="contact_form"><h4>کارشناسان ما در اسرع وقت با شما تماس می گیرند.</h4></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-xl-6">
+                            <div class="contact__content ml-100 ml-lg-0">
+                                <h3 class="mb-60 mb-lg-40">آدرس ما</h3>
+                                <div class="contact__address d-flex mb-50 mb-lg-30">
+                                    <div class="icon mr-40"><img src="{% static 'assets/img/icon/map__01.png' %}" alt="image">
+                                    </div>
+                                    <div class="info">
+                                        <h5 class="section__sub__title__four">آدرس دفتر:</h5>
+                                        <p>{{ contact_us.address }}</p>
+                                    </div>
+                                </div>
+                                <div class="contact__address d-flex mb-50 mb-lg-30">
+                                    <div class="icon mr-40"><img src="{% static 'assets/img/icon/map__02.png' %}" alt="" class="">
+                                    </div>
+                                    <div class="info">
+                                        <h5 class="section__sub__title__four">پست الکترونیک :</h5>
+                                        <p><a href="https://{{ contact_us.email }}">{{ contact_us.email }}</a></p>
+                                    </div>
+                                </div>
+                                <div class="contact__address d-flex mb-50 mb-lg-30">
+                                    <div class="icon mr-40"><img src="{% static 'assets/img/icon/map__03.png' %}" alt="" class="">
+                                    </div>
+                                    <div class="info">
+                                        <h5 class="section__sub__title__four">تلفن :</h5>
+                                        <p><a href="tel:{{ contact_us.phone }}">{{contact_us.phone }}</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="devider__line position-relative mt-60"></div>
+        </div>
+    </main>
+{% endblock %}
