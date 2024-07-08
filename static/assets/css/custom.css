@@ -1,3 +1,7 @@
 #answer {
     cursor: pointer;
 }
+
+#members_image {
+    height: 350px;
+}

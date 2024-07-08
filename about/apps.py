@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
 
-class HomeConfig(AppConfig):
+class AboutConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'home'
-    verbose_name = 'صفحه اصلی'
+    name = 'about'
+    verbose_name = 'درباره ما'

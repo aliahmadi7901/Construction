@@ -1,0 +1,273 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block title %}
+    درباره ما
+{% endblock %}
+
+{% block content %}
+    <section class="about__banner position-relative">
+        <div class="about__banner__bg aos-init aos-animate" data-aos="fade-up">
+            <div class="about__banner__content m-auto">
+                <div class="container position-relative">
+                    <div class="row align-items-center pt-250 pb-150 pt-lg-190 pb-lg-90">
+                        <div class="col-xl-12">
+                            <div class="theme__content position-relative m-auto text-center">
+                                <h1 class="banner__main__title">درباره ما</h1>
+                                <p class=""><a href="{% url 'home_page' %}">صفحه اصلی</a><span class=""></span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about__section home__two__section__two position-relative pt-160 pt-lg-60">
+        <div class="about__section__wrapper aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-5 mb-lg-60">
+                        <div class="section__title pt-50">
+                            <div class="row">
+                                <div class="col-xl-11 col-lg-12">
+                                    <span class="section__sub__title">درباره ما</span>
+                                    <h2 class="section__title__main position-relative mb-30 mt-20">کارشناسان ما آماده
+                                        ارائه مشاوره و سرویس های مربوط به امور ساختمانی به شما مشتریان عزیز هستند.</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-10"><p class="section__description mb-40">تخصص ما شامل معماری، ساخت و
+                                    ساز، طراحی داخلی و بازسازی است.</p></div>
+                            </div>
+                            <div class="form__list mb-60 mb-lg-30">
+                                <div class="form-check mb-30 d-flex align-items-center">
+                                    <div class="icon"></div>
+                                    <label>متخصصان ماهر ما آماده ارائه خدمات به شما هستند.</label>
+                                </div>
+                                <div class="form-check mb-30 d-flex align-items-center">
+                                    <div class="icon"></div>
+                                    <label>کیفیت بالا در امور به واسطه پیشرفته ترین دستگاه های ساختمانی.</label>
+                                </div>
+                                <div class="form-check d-flex align-items-center">
+                                    <div class="icon"></div>
+                                    <label>کیفیت و زیبایی را از ما بخواهید.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-7">
+                        <div class="section__content position-relative ml-100 ml-lg-0">
+                            <img src="{% static 'assets/img/about/home__two__about__01.jpg' %}" alt="image"
+                                 class="home__two__about__01">
+                            <img
+                                src="{% static 'assets/img/about/home__two__about__03.png' %}" alt=""
+                                class="shapes home__two__about__03">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="counter__section pt-250 pt-lg-160 pb-130 pb-lg-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 text-start text-lg-center">
+                        <div class="fact__one mb-lg-30">
+                            <h1 class="banner__main__title">
+                                <span class="counter">{{ site_setting.zero_to_hundred_count }}</span>k</h1>
+                            <div class="row ">
+                                <div class="col-12 text-start text-lg-center"><small class="">پروژه های صفر تا صد</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 text-start text-lg-center">
+                        <div class="fact__one mb-lg-30">
+                            <h1 class="banner__main__title"><span class="counter">{{ site_setting.rebuilding_count }}</span>k</h1>
+                            <div class="row ">
+                                <div class="col-12 text-start text-lg-center"><small class="">پروژه های بازسازی</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="fact__one text-start text-lg-end">
+                            <h1 class="banner__main__title">
+                                <span class="counter">{{ site_setting.project_success_count }}</span>k+</h1>
+                            <div class="row">
+                                <div class="col-8 text-start text-lg-center ml-40 ml-md-0"><small class="">پروژه های
+                                    موفق</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="{% static 'assets/img/shape/star__shape__02.png' %}" alt="" class="shapes star__shape__02">
+    </section>
+    <section class="video__section home__one__section__two position-relative">
+        <div class="video__section__wrapper pb-lg-30 aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xxl-5 pb-100">
+                        <div class="video__content">
+                            <div class="section__title">
+                                <div class="row">
+                                    <div class="col-xl-11 col-lg-12"><h2
+                                            class="section__title__main position-relative mb-35">مزایای انتخاب ما.</h2>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-10"><p class="section__description mb-60">ما سال ها تخصص و تجربه
+                                        صنعت را به کار میگیریم و اطمینان می دهیم که می توانیم نتیجه بگیریم.</p></div>
+                                </div>
+                            </div>
+                            <div class="form__list">
+                                <div class="form-check mb-30 d-flex align-items-center">
+                                    <div class="icon"></div>
+                                    <label>تخصص و تجربه</label>
+                                </div>
+                                <div class="form-check mb-30 d-flex align-items-center">
+                                    <div class="icon"></div>
+                                    <label>رویکرد مشتری محور.</label>
+                                </div>
+                                <div class="form-check d-flex align-items-center">
+                                    <div class="icon"></div>
+                                    <label>راه حل های نوآورانه</label>
+                                </div>
+                            </div>
+                            <div class="row mt-80 mt-lg-40 mb-30">
+                                <div class="col-lg-6">
+                                    <div class="contact__number mb-lg-30"><h6 class="section__sub__title__five"><a
+                                            href="https://{{ contact_us.email }}">ایمیل ما</a></h6></div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="contact__number"><h6 class="section__sub__title__five"><a
+                                            href="tel:{{ contact_us.phone }}">{{ contact_us.phone }}</a></h6></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="{{ site_setting.film_link }}" class="popup-video"><img
+                        src="{% static 'assets/img/icon/play__01.png' %}" alt="icon"></a>
+            </div>
+        </div>
+    </section>
+    <section class="team__section home__one__section__six position-relative pb-lg-60 pt-150 pt-lg-60">
+        <div class="team__section__wrapper aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="section__title mb-lg-30 text-start text-lg-center">
+                    <h2 class="section__title__main position-relative mb-30">تیم ما</h2>
+                    <p class="section__description mb-30">تیم ما متشکل از افراد متخصص و با تجربه کاری بالاست.</p>
+                </div>
+            </div>
+            <div class="team-container pt-80 pt-lg-40">
+                <div class="swiper team__slider__one swiper-initialized swiper-horizontal swiper-rtl swiper-backface-hidden">
+                    <div class="swiper-wrapper d-flex align-items-center" id="swiper-wrapper-91b6d7fc667683b6"
+                         aria-live="polite">
+
+                        {% for member in team %}
+                        	<div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 8"
+                             style="width: 412px; margin-left: 30px;" data-swiper-slide-index="0">
+                            <div class="team__main__content position-relative mb-30">
+                                <div class="team__img"><img src="{{ member.image.url }}" id="members_image" alt="image"
+                                                            class="w-100"></div>
+                                <div class="team__content">
+                                    <div class="team__link text-center text-lg-end mb-40 mb-lg-30">
+                                    </div>
+                                    <div class="team__text text-center mt-160">
+                                        <h5 class="section__sub__title__four">{{ member.name }}</h5>
+                                        <span class="opacity-7">{{ member.skill }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonial__section home__three__section__seven position-relative pb-70 pb-lg-60 pt-90 pt-lg-60">
+        <div class="testimonial__section__wrapper aos-init aos-animate" data-aos="fade-up">
+        <h3 class="alert alert-info">
+            مشتریان خوشحال ما
+        </h3>
+            <div class="container">
+                <div class="testimonial-container position-relative pt-80 pt-lg-40">
+                    <div class="swiper testimonial__slider__two position-relative swiper-initialized swiper-horizontal swiper-rtl swiper-backface-hidden">
+                        <div class="swiper-wrapper d-flex align-items-center" id="swiper-wrapper-c5736883cfc2bf76"
+                             aria-live="polite">
+                            {% for customer in customers %}
+                            	<div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 5"
+                                 data-swiper-slide-index="0" style="width: 690px; margin-left: 30px;">
+                                <div class="testimonial__main__content position-relative">
+                                    <div class="row align-items-center">
+                                        <div class="col-xl-12 text-center">
+                                            <div class="text__content mb-lg-30">
+                                                <div class="icon mb-3"><img src="{{ customer.image.url }}" alt="image"
+                                                                            class=""></div>
+                                                <h2 class="three__section__title__main mb-30">بهترین تبلیغ ما مشتریان خوشحال ما هستند.</h2>
+                                                <div class="row pb-50 pb-lg-30">
+                                                    <div class="col-xl-8 m-auto">
+                                                        <div class="quotation"><span>{{ customer.comment }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="author__content">
+                                                    <div class="">
+                                                        <b>{{ customer.name}}</b><span class="opacity-6"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-pagination position-relative pt-70 swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+                            <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0"
+                                  role="button" aria-label="Go to slide 1" aria-current="true"></span><span
+                                class="swiper-pagination-bullet" tabindex="0" role="button"
+                                aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0"
+                                                                        role="button" aria-label="Go to slide 3"></span><span
+                                class="swiper-pagination-bullet" tabindex="0" role="button"
+                                aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0"
+                                                                        role="button" aria-label="Go to slide 5"></span>
+                        </div>
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                    <div class="previous__btn text-start text-lg-end mr-10 mr-md-0 mb-md-40">
+                        <div class="swiper-button-prev" tabindex="0" role="button" aria-label="Previous slide"
+                             aria-controls="swiper-wrapper-c5736883cfc2bf76"></div>
+                    </div>
+                    <div class="next__btn w-50 ml-10 ml-md-20">
+                        <div class="swiper-button-next" tabindex="0" role="button" aria-label="Next slide"
+                             aria-controls="swiper-wrapper-c5736883cfc2bf76"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact__three__section position-relative pb-70 pb-lg-60 pt-90 pt-lg-60">
+        <div class="contact__section__wrapper position-relative pt-90 pb-90 aos-init aos-animate" data-aos="fade-up">
+            <div class="container">
+                <div class="main__content">
+                    <h4 class="section__sub__title__four mb-25">دفتر مرکزی</h4>
+                    <p class="three__section__description mb-25">{{ contact_us.address }}</p>
+                    <div class="contact__info mb-25">
+                        <b>پست الکترونیک</b>
+                        <p><a href="https://{{ contact_us.email }}">{{ contact_us.email }}</a></p>
+                    </div>
+                    <div class="contact__info mb-25">
+                        <b>با ما تماس بگیرید:</b>
+                        <p><a href="tel:{{ contact_us.phone }}">{{contact_us.phone}}</a></p>
+                    </div>
+                    <a href="tel:{{ contact_us.phone }}" class="ht_btn"><span>با ما تماس بگیرید</span></a>
+                </div>
+            </div>
+            <div class="map__indicator shapes"><a href="" class=""><img src="{% static 'assets/img/icon/location__01.png' %}" alt="image"
+                                                                        class=""></a></div>
+            <img src="{% static 'assets/img/contact/map__01.png' %}" alt="background" class="shapes map__01">
+        </div>
+    </section>
+{% endblock %}

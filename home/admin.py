@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from home.models import HappyCustomers
+
+
+@admin.register(HappyCustomers)
+class HappyCustomersAdmin(admin.ModelAdmin):
+    list_display = ('name', 'address')

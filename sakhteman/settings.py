@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'projects',
     'services',
     'blog',
+    'about',
+    'contact_us',
     # external
     'django_render_partial',
     'django_jalali',
