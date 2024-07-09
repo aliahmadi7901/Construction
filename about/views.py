@@ -11,7 +11,7 @@ class AboutUs(View):
         site_setting: SiteSetting = SiteSetting.objects.first()
         contact_us = ContactUs.objects.first()
         team = TeamMembers.objects.all()[:4]
-        customers = HappyCustomers.objects.all()[:4]
+        customers = HappyCustomers.objects.order_by('-id')[:4]
         return render(request, 'about/about.html', {
             'site_setting': site_setting, 'contact_us': contact_us, 'team': team, 'customers': customers
         })

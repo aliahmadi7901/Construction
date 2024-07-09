@@ -8,10 +8,10 @@ class ProjectListView(ListView):
     model = Project
     template_name = 'projects/projects.html'
     context_object_name = 'projects'
-    paginate_by = 4
+    paginate_by = 6
 
     def get_queryset(self):
-        queryset = Project.objects.all()
+        queryset = Project.objects.order_by('-id')
         category = self.kwargs.get('category')
         if category:
             queryset = queryset.filter(project_category__title=category)

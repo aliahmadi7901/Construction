@@ -57,23 +57,23 @@
         </div>
     </div>
     <div class="offset-sidebar">
-        <div class="offset-widget offset-logo mb-30"><a href="index.html"><img
+        <div class="offset-widget offset-logo mb-30"><a href="{% url 'home_page' %}"><img
                 src="{% static "assets/img/logo/header-logo-02.png" %}" alt="logo"></a></div>
         <div class="mobile-menu"></div>
         <div class="offset-widget mb-40">
             <div class="info-widget">
                 <h4 class="offset-title mb-20">درباره ما</h4>
-                <p class="mb-30">اما من باید برای شما توضیح دهم که چگونه این ایده اشتباه تقبیح لذت و ستایش درد به
-                    وجود آمد و به شما گزارش کاملی از سیستم ارائه می دهد و آموزه های واقعی کاوش بزرگ را شرح می
-                    دهد.</p>
+                <p class="mb-30">ما یک مجموعه تیمی متشکل از افراد متخصص و مهندس با تجربه کاری بالا در ضیمنه ساخت و ساز و
+                    انواع خدمات ساختمانی هستیم.آنقدر به خود اطمینان داریم که کیفیت کار خودمان را تضمین میکنیم. بهترین
+                    تبلیغ ما سابغه و مشتریان خوشحال ما هستند.</p>
             </div>
         </div>
         <div class="offset-widget mb-30 pr-10">
             <div class="info-widget info-widget2">
                 <h4 class="offset-title mb-20">اطلاعات تماس</h4>
-                <p><i class="fal fa-address-book"></i>23/A، شهر میراندا لیکائولی پریکانو، دوپ</p>
-                <p><i class="fal fa-phone"></i>9865 7876 0989 + 9</p>
-                <p><i class="fal fa-envelope-open"></i>info@example.com</p>
+                <p><i class="fal fa-address-book"></i>{{ contact_us.address }}</p>
+                <p><i class="fal fa-phone"></i>{{ contact_us.phone }}</p>
+                <p><i class="fal fa-envelope-open"></i>{{ contact_us.email }}</p>
             </div>
         </div>
     </div>
@@ -84,52 +84,32 @@
         <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-xxl-2 col-xl-2 col-5">
-                    <div class="logo-area"><a class="front" href="index.html"><img
-                            src="{% static "assets/img/logo/header-logo-01.png" %}" alt="Header-logo"></a></div>
+                    <div class="logo-area"><a class="front" href="{% url 'home_page' %}"><img id="logo"
+                                                                                              src="
+                                                                                                      {% if site_setting.logo_site %}{{ site_setting.logo_site.url }}{% else %}{% static "assets/img/logo/header-logo-02.png" %}{% endif %}"
+                                                                                              alt="Header-logo"></a>
+                    </div>
                 </div>
                 <div class="col-xxl-9 col-xl-9 col-4 d-flex align-items-center justify-content-end">
-                    <div class="logo-area d-none"><a class="front" href="index.html"><img
-                            src="{% static "assets/img/logo/header-logo-02.png" %}" alt="Header-logo"></a></div>
+                    <div class="logo-area d-none"><a class="front" href="{% url 'home_page' %}"><img
+                            src="
+                                    {% if site_setting.logo_site %}{{ site_setting.logo_site.url }}{% else %}{% static "assets/img/logo/header-logo-02.png" %}{% endif %}"
+                            alt="Header-logo"></a></div>
                     <div class="main-menu d-none d-xxl-block mr-40">
                         <nav id="mobile-menu">
-                            <ul class="menu-list ps-0">
+                            <ul>
+                                <li><a href="{% url 'home_page' %}">صفحه اصلی</a></li>
+                                <li><a href="{% url 'about_us' %}">درباره ما</a></li>
                                 <li>
-                                    <a href="#">صفحه اصلی</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="index.html">صفحه اصلی 01</a></li>
-                                        <li><a href="index-2.html">صفحه اصلی 02</a></li>
-                                        <li><a href="index-3.html">صفحه اصلی 03</a></li>
-                                        <li><a href="index-4.html">خانه باکس 04</a></li>
-                                        <li><a href="index-5.html">Home One 05</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="about.html">در باره</a></li>
-                                <li>
-                                    <a href="#">پروژه</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="project.html">پروژه شماره 01</a></li>
-                                        <li><a href="project-2.html">پروژه شماره 02</a></li>
-                                        <li><a href="project-3.html">پروژه شماره 03</a></li>
-                                        <li><a href="project-details.html">جزئیات پروژه</a></li>
-                                    </ul>
+                                    <a href="{% url 'projects_page' %}">پروژه ها</a>
                                 </li>
                                 <li>
-                                    <a href="#">خدمات</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="services.html">سرویس شماره 01</a></li>
-                                        <li><a href="services-02.html">سرویس شماره 02</a></li>
-                                        <li><a href="services-details.html">جزئیات خدمات</a></li>
-                                    </ul>
+                                    <a href="{% url 'services_page' %}">خدمات</a>
                                 </li>
                                 <li>
-                                    <a href="#">وبلاگ</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog.html">وبلاگ</a></li>
-                                        <li><a href="blog-02.html">وبلاگ Standerd</a></li>
-                                        <li><a href="blog-details.html">جزئیات وبلاگ</a></li>
-                                    </ul>
+                                    <a href="{% url 'blog_list' %}">مقالات</a>
                                 </li>
-                                <li><a href="contact.html">با ما تماس بگیرید</a></li>
+                                <li><a href="{% url 'contact_us' %}">با ما تماس بگیرید</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -140,11 +120,6 @@
                             <div class="search-icon" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop"
                                  aria-controls="offcanvasTop"><a href="#" class=""><i class="far fa-search"></i></a>
                             </div>
-                        </div>
-                        <div class="cart__menu d-none d-xxl-inline-block ml-20"><a class="shopping-cart" href="#"
-                                                                                   data-bs-toggle="offcanvas"
-                                                                                   data-bs-target="offcanvasRight"><img
-                                src="assets/img/icon/cart__icon.svg" alt="" class=""><span class="badge"></span></a>
                         </div>
                         <div class="hamburger-menu d-inline-block d-xxl-none"><a class="round-menu"
                                                                                  href="javascript:void(0);"><i
