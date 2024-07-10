@@ -9,6 +9,7 @@ class SiteSetting(models.Model):
     footer_text = models.TextField(verbose_name='متن پاورقی سایت')
     film_link = models.CharField(max_length=300, verbose_name='لینک فیلم تبلیغاتی')
     logo_site = models.ImageField(upload_to='logo', null=True, blank=True, verbose_name='لوگوی سایت')
+    logo_site_footer = models.ImageField(upload_to='logo', null=True, blank=True, verbose_name='لوگوی سایت انتهای صفحه')
 
     def __str__(self):
         return self.copy_right_text

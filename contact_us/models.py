@@ -18,7 +18,7 @@ class ContactUs(models.Model):
 class Contact(models.Model):
     name = models.CharField(max_length=100, verbose_name='نام')
     phone = models.CharField(max_length=11, verbose_name='شماره تماس')
-    comment = models.TextField(verbose_name='نظر')
+    comment = models.TextField(verbose_name='پیام')
     checked = models.BooleanField(default=False, verbose_name='چک شده/نشده')
 
     def __str__(self):

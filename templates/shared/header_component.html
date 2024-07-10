@@ -9,8 +9,10 @@
             class="fas fa-times search-close" id="search-close"></i></a></div>
     <div class="offcanvas-body">
         <div class="search-wrap">
-            <form method="get"><input type="search" class="main-search-input"
-                                      placeholder="کلمه کلیدی خود را جستجو کنید..."></form>
+            <form method="post" action="{% url 'services_page' %}"><input type="search" name="search" class="main-search-input"
+                                      placeholder="از بین خدمات جستجو کنید...">
+                {% csrf_token %}
+            </form>
         </div>
     </div>
 </div>

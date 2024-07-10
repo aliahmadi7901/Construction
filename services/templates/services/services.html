@@ -37,7 +37,7 @@
                                     انواع خانه های ویلایی, آپارتمانی و باغ ویلا و باز سازی و معماری با دانش به روز و
                                     تجربه بالا در زمینه ساخت و ساز است.</p></div>
                             </div>
-                            <div class="section__button d-flex align-items-center"><a href="contact.html"
+                            <div class="section__button d-flex align-items-center"><a href="{% url 'about_us' %}"
                                                                                       class="ht_btn"><span>ادامه مطلب</span></a>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                         را مشاهده کنید و خدماتی که مورد نیازتون هست رو پیدا کنید.</p>
                                 </div>
                             </div>
-                            <a href="contact.html"
+                            <a href="{% url 'contact_us' %}"
                                class="ht_btn three__ht__btn offset-4"><span>برای کسب اطلاعات بیشتر با ما در تماس باشید.</span></a>
                         </div>
                     </div>
@@ -72,17 +72,26 @@
             <div class="container">
                 <span class="three__section__sub__title position-relative">آنچه ما ارائه می دهیم</span>
                 <div class="row pt-30 pt-lg-30">
-                    {% for service in services %}
-                        <div class="col-xxl-4">
-                            <div class="service__main__content text-start mb-30 mb-lg-30">
-                                <div class="service__icon service__icon__two position-relative mb-40 mb-lg-30"></div>
-                                <h4 class="three__section__sub__title__one mb-20"><a href="{% url 'service_detail_page' service.id %}">{{ service.title}}</a></h4>
-                                <p class="section__description__two opacity-7 mb-40 mb-lg-30">{{ service.short_description }}</p>
-                                <div class="service__link"><a href="{% url 'service_detail_page' service.id %}">بیشتر ببین<span><i
-                                        class="bi bi-arrow-right"></i></span></a></div>
+                    {% if services.all %}
+                        {% for service in services %}
+                            <div class="col-xxl-4">
+                                <div class="service__main__content text-start mb-30 mb-lg-30">
+                                    <div class="service__icon service__icon__two position-relative mb-40 mb-lg-30"></div>
+                                    <h4 class="three__section__sub__title__one mb-20"><a
+                                            href="{% url 'service_detail_page' service.id %}">{{ service.title }}</a>
+                                    </h4>
+                                    <p class="section__description__two opacity-7 mb-40 mb-lg-30">{{ service.short_description }}</p>
+                                    <div class="service__link"><a href="{% url 'service_detail_page' service.id %}">بیشتر
+                                        ببین<span><i
+                                                class="bi bi-arrow-right"></i></span></a></div>
+                                </div>
                             </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="alert alert-info">
+                            سرویسی یافت نشد
                         </div>
-                    {% endfor %}
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -92,16 +101,16 @@
             <div class="container">
                 <div class="main__content">
                     <h4 class="section__sub__title__four mb-25">دفتر مرکزی</h4>
-                    <p class="three__section__description mb-25">4517 واشینگتن خیابان منچستر، کنتاکی 39495، مکزیک.</p>
+                    <p class="three__section__description mb-25">{{ contact_us.address }}</p>
                     <div class="contact__info mb-25">
                         <b>پست الکترونیک</b>
-                        <p><a href="">mahmudinfoconstruction@gmail.com</a></p>
+                        <p><a href="https://{{ contact_us.email }}">{{ contact_us.email }}</a></p>
                     </div>
                     <div class="contact__info mb-25">
                         <b>با ما تماس بگیرید:</b>
-                        <p><a href="">(702) 555-0122</a></p>
+                        <p><a href="tel:{{ contact_us.phone }}">{{ contact_us.phone }}</a></p>
                     </div>
-                    <a href="contact.html" class="ht_btn"><span>با ما تماس بگیرید</span></a>
+                    <a href="tel:{{ contact_us.phone }}" class="ht_btn"><span>با ما تماس بگیرید</span></a>
                 </div>
             </div>
             <div class="map__indicator shapes"><a href="" class=""><img src="assets/img/icon/location__01.png" alt=""

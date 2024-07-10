@@ -4,7 +4,7 @@ from django.views.generic import View
 from about.models import SiteSetting, TeamMembers
 from blog.models import Blog
 from contact_us.models import ContactUs
-from home.models import HappyCustomers
+from home.models import HappyCustomers, FooterLinksCategory
 from projects.models import Project
 from services.models import Services
 
@@ -18,8 +18,13 @@ class HeaderView(View):
         })
 
 
-def footer_component(request):
-    return render(request, 'shared/footer_component.html')
+class FooterView(View):
+    def get(self, request, *args, **kwargs):
+        site_setting = SiteSetting.objects.first()
+        footer_link_category = FooterLinksCategory.objects.prefetch_related('footer_links')[:4]
+        return render(request, 'shared/footer_component.html', {
+            'site_setting': site_setting, 'footer_link_category': footer_link_category
+        })
 
 
 class HomeView(View):

@@ -7,67 +7,38 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="footer__widget__one mb-30 pr-100 pr-lg-0">
                             <a href="index.html" class="footer-logo d-inline-block mb-30"><img
-                                    src="{% static "assets/img/logo/header-logo-02.png" %}" alt="footer-logo"></a>
-                            <p class="mb-30">کارگران ساختمانی زیر آفتاب سوزان زحمت کشیدند و در ساختمان اداری جدید
-                                پیشرفت کردند.</p>
-                            <div class="social_media mt-35">
-                                <a href="#"><img src="{% static "assets/img/social/facebook__01.png" %}" alt="" class=""></a><a
-                                    href="#"><img src="{% static "assets/img/icon/linkedin__01.svg" %}" alt="" class=""></a><a
-                                    href="#"><img src="{% static "assets/img/icon/twitter__01.svg" %}" alt="" class=""></a>
+                                    src="
+                                            
+                                            {% if site_setting.logo_site_footer %}{{ site_setting.logo_site_footer.url }}{% else %}{% static "assets/img/logo/header-logo-02.png" %}{% endif %}"
+                                    alt="footer-logo"></a>
+                            <p class="mb-30">{{ site_setting.footer_text }}</p>
+                        </div>
+                    </div>
+                    {% for category in footer_link_category %}
+                        <div class="col-xl-2 col-lg-2 col-md-6">
+                            <div class="footer__widget pt-40">
+                                <h4 class="widget__title mb-30">{{ category.title }}</h4>
+                                <ul>
+                                    {% for link in category.footer_links.all %}
+                                    	<li><a href="{{ link.link }}">{{ link.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 col-md-6">
-                        <div class="footer__widget pt-40">
-                            <h4 class="widget__title mb-30">پیوندها</h4>
-                            <ul>
-                                <li><a href="about.html">صفحه اصلی</a></li>
-                                <li><a href="blog.html">خدمات</a></li>
-                                <li><a href="contact.html">پروژه ها</a></li>
-                                <li><a href="contact.html">گواهینامه</a></li>
-                                <li><a href="contact.html">وبلاگ ها</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 ms-auto">
-                        <div class="footer__widget pt-40 ">
-                            <h4 class="widget__title mb-30">خدمات ما</h4>
-                            <ul>
-                                <li><a href="about.html">ساخت و ساز ساختمان</a></li>
-                                <li><a href="blog.html">برنامه ریزی معماری</a></li>
-                                <li><a href="contact.html">بازسازی عمومی</a></li>
-                                <li><a href="contact.html">تعمیر آسیب</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-6 ms-auto">
-                        <div class="footer__widget footer__contact pt-40">
-                            <h4 class="widget__title mb-30">محصولات</h4>
-                            <ul>
-                                <li><a href="about.html">اجتماعی</a></li>
-                                <li><a href="blog.html">چت زنده</a></li>
-                                <li><a href="contact.html">سلف سرویس ها</a></li>
-                                <li><a href="contact.html">سیار</a></li>
-                                <li><a href="contact.html">سیاست آشپزی</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="devider__line"></div>
                 <div class="copyright__area pt-35 pb-30">
                     <div class="row">
                         <div class="col-xl-5">
                             <div class="text-start">
-                                <div class="copyright__text pb-30"><p><a class="fw-bold"
-                                                                         href="https://themeforest.net/user/creativegigs/portfolio">بازی
-                                    های خلاقانه</a>© 2024, All Rights Reserved</p></div>
+                                <div class="copyright__text pb-30"><p>{{ site_setting.copy_right_text }}©</p></div>
                             </div>
                         </div>
                         <div class="col-xl-6 ms-auto">
                             <div class="">
                                 <ul class="text-start text-xl-end">
-                                    <li><a href="#">سیاست حفظ حریم خصوصی</a></li>
-                                    <li><a href="#">با ما تماس بگیرید.</a></li>
+                                    <li><a href="" id="developer">طراح و برنامه نویس سایت: علی احمدی</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -76,5 +47,4 @@
             </div>
         </div>
     </div>
-    <img src="{% static "assets/img/bg/home__one__section__one.svg" %}" alt="" class="shapes w-100 section__one__bg"><img
-        src="{% static "assets/img/shape/star__shape__02.png" %}" alt="" class="shapes star__shape__02"></footer>
+</footer>
